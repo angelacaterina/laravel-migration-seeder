@@ -13,22 +13,7 @@ class StudentSeeder extends Seeder
     public function run()
     {
         //
-        $student_list = [
-            [
-                'name' => 'Pippo',
-                'lastname' => 'Pluto',
-            ],
-            [
-                'name' => 'Paperino',
-                'lastname' => 'Gianmario',
-            ],
-            [
-                'name' => 'Topolino',
-                'lastname' => 'Stilton',
-            ],
-        ];
-
-        // $category_list = config('cats');
+        $student_list = config('stud');
 
         foreach ($student_list as $student) {
             # code...

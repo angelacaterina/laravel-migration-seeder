@@ -1,6 +1,8 @@
 <?php
 
+use App\Course;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class CourseSeeder extends Seeder
 {
@@ -9,8 +11,15 @@ class CourseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         //
+        for ($i=0; $i < 10; $i++) { 
+            # code...
+            $newCourse = new Course();
+            $newCourse->name = $faker->word();
+            $newCourse->description = $faker->paragraph(6);
+            $newCourse->save();
+        }
     }
 }
