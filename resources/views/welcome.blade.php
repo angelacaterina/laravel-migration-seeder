@@ -71,9 +71,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="">Student</a>
-                    <a href="">Class</a>
-                    <a href="">Course</a>
+                    <a href="{{route('students.index')}}">Student</a>
+                    <a href="{{route('classes.index')}}">Class</a>
+                    <a href="{{route('courses.index')}}">Course</a>
                 </div>
             </div>
         </div>

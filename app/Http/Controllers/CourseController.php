@@ -15,6 +15,9 @@ class CourseController extends Controller
     public function index()
     {
         //
+        $courses = Course::all();
+        dd($courses);
+        return view('courses.index' , compact('courses'));
     }
 
     /**
@@ -25,6 +28,7 @@ class CourseController extends Controller
     public function create()
     {
         //
+        return view('courses.index');
     }
 
     /**
@@ -36,6 +40,14 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        Course::create($validatedData);
+
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -47,6 +59,7 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         //
+        return view('courses.show' , compact('course'));
     }
 
     /**

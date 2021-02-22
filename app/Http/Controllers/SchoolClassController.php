@@ -15,6 +15,9 @@ class SchoolClassController extends Controller
     public function index()
     {
         //
+        $classes = SchoolClass::all();
+        // dd($classes);
+        return view('classes.index' , compact('classes'));
     }
 
     /**
@@ -25,6 +28,7 @@ class SchoolClassController extends Controller
     public function create()
     {
         //
+        return view('classes.create');
     }
 
     /**
@@ -36,6 +40,14 @@ class SchoolClassController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        SchoolClass::create($validatedData);
+
+        return redirect()->route('classes.index');
     }
 
     /**
@@ -47,6 +59,7 @@ class SchoolClassController extends Controller
     public function show(SchoolClass $schoolClass)
     {
         //
+        return view('classes.show' , compact('schoolClass'));
     }
 
     /**
